@@ -1,5 +1,6 @@
 # face2
 
+just a simple task manager's face, no style
 ## Project setup
 ```
 npm install
