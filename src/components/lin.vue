@@ -6,6 +6,7 @@
             <template v-if="isbtn">
                 <a class="fa fa-plus" @click="newl()"></a>
                 <a class="fa fa-pencil" @click="edit()"></a>
+                <a class="fa fa-refresh" @click="refresh()" v-if="lin.ct>0"></a>
                 <a class="fa fa-times" @click="toggledel()"></a>
                 <div class="isdel" v-if="isdel">
                     you sure?
@@ -46,6 +47,10 @@ export default {
                 this.getlins();
             }
             this.showchild = !this.showchild;
+        },
+        refresh(){
+            this.lin.Child = null;
+            this.getlins();
         },
         getlins(){
             req.post('list',{id:this.lin.id}).then((res)=>{
@@ -111,6 +116,7 @@ export default {
 div{
     text-align: left;
     margin-left:10px;
+    margin-top:5px;
 }
 a{
     text-align: left;
